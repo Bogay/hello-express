@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                docker.build('bogay-express').inside {
-                    sh 'npm test'
+                script {
+                    docker.build('bogay-express').inside {
+                        sh 'npm test'
+                    }
                 }
             }
         }
