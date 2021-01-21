@@ -1,15 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        dockerfile {
+            args '-u root:root'
+        }
+    }
     stages {
         stage('Test') {
             steps {
-                script {
-                    docker.build('bogay-express').inside {
-                        dir('/usr/src/app') {
-                            sh 'npm test'
-                        }
-                    }
-                }
+                sh 'cd /usr/src/app && npm test'
             }
         }
     }
