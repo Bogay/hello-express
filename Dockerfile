@@ -13,6 +13,6 @@ COPY . .
 
 EXPOSE 3000
 
-ENTRYPOINT ["dumb-init", "npm"]
+ENTRYPOINT ["dumb-init", "--"]
 
-CMD "start"
+CMD ["npm", "start"]
