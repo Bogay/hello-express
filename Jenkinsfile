@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     docker.build('bogay-express').inside {
-                        sh 'npm test'
+                        sh 'cd /usr/src/app && npm test'
                     }
                 }
             }
