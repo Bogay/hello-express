@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'npm test'
+                dir(path: '/usr/src/app') {
+                    sh 'npm test'
+                }
             }
         }
     }
